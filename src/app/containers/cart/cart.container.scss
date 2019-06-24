@@ -1,0 +1,34 @@
+:host {
+      display: flex;
+      height: 90%;
+      .cartBookListSection{
+         width: 55%;
+         overflow: auto;
+         .cartBookList{
+            display: block;
+            /deep/ a{
+               width: 85%;
+               margin: 20px;
+               mat-card{
+                  margin: 0;
+                  .book-summary{
+                     mat-card-header{
+                        .mat-card-header-text{
+                           width: 100%;
+                        }
+                     }
+                     a{
+                        display: block;
+                     }
+                  }
+               }
+            }
+         }
+      }
+      .cartBookListPriceSection{
+         width: 45%;
+         position: fixed;
+         right: 0;
+         margin: 20px 0;
+      }
+}

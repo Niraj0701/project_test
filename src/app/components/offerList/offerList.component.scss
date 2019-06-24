@@ -1,0 +1,28 @@
+:host {
+   .priceCart{
+      margin: 0 10%;
+      .appRadioButton {
+         margin: 5px 10px;
+      }
+   }
+   .totalPriceSection{
+      .totalPriceAmount{
+         font-size: 25px;
+      }
+   }
+   .deductionSection{
+      .deductionText{
+      }
+      .deductionAmount{
+         font-size: 20px;
+         color: forestgreen;
+      }
+   }
+   .priceSection{
+      .cartListPrice {
+         font-weight: bold;
+         font-size: 25px;
+         color:  orangered;
+      }
+   }
+}

@@ -1,0 +1,51 @@
+<mat-card class="priceCart" *ngIf="offersList.length>0">
+   <mat-card-header>
+      <mat-card-title>Les Offre disponible :</mat-card-title>
+   </mat-card-header>
+   <mat-card-content>
+      <mat-radio-group aria-label="Select an option">
+         <mat-radio-button class="appRadioButton"  *ngFor="let offer of offersList" [disabled]="isValidForSliceValue(offer)"
+                           value="{{offer.value}}" (change)="radioChange(offer)">
+            {{offer.value + this.getOfferText(offer) + this.isSliceOffer(offer)}}</mat-radio-button>
+      </mat-radio-group>
+   </mat-card-content>
+   <mat-divider></mat-divider>
+   <section class="totalPriceSection">
+      <mat-grid-list cols="4" rowHeight="30px">
+         <mat-grid-tile [colspan]="4" [rowspan]="1">
+         </mat-grid-tile>
+         <mat-grid-tile [colspan]="2" [rowspan]="1">
+            Prix total:
+         </mat-grid-tile>
+         <mat-grid-tile [colspan]="2" [rowspan]="1" class="totalPriceAmount">
+            {{totalCartValue.toFixed(2)}} €
+         </mat-grid-tile>
+      </mat-grid-list>
+   </section>
+   <section class="deductionSection">
+      <mat-grid-list cols="4" rowHeight="20px">
+
+         <mat-grid-tile [colspan]="2" [rowspan]="1" class="deductionText">
+            Deduction par:
+         </mat-grid-tile>
+         <mat-grid-tile [colspan]="2" [rowspan]="1" class="deductionAmount">
+            {{deductionInPriceBy(totalCartValue, finalPrice)}} €
+         </mat-grid-tile>
+         <mat-grid-tile [colspan]="4" [rowspan]="1">
+         </mat-grid-tile>
+      </mat-grid-list>
+   </section>
+   <mat-divider></mat-divider>
+   <section class="priceSection">
+      <mat-grid-list cols="4" rowHeight="30px">
+         <mat-grid-tile [colspan]="4" [rowspan]="1">
+         </mat-grid-tile>
+         <mat-grid-tile [colspan]="2" [rowspan]="1">
+            Prix apés l'offret:
+         </mat-grid-tile>
+         <mat-grid-tile [colspan]="2" [rowspan]="1" class="cartListPrice">
+            {{finalPrice.toFixed(2)}} €
+         </mat-grid-tile>
+      </mat-grid-list>
+   </section>
+</mat-card>

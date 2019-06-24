@@ -1,0 +1,29 @@
+<a class="book-brief" *ngFor="let book of booksLists ">
+   <mat-card class="book-card">
+      <div class="book-image">
+         <img src="{{book.cover}}" style="height: 15vh;">
+      </div>
+      <div class="book-summary">
+         <mat-card-header>
+            <mat-card-title>{{book.title}}</mat-card-title>
+            <mat-card-subtitle [routerLink]="['/book', book.isbn]" >Plus detail</mat-card-subtitle>
+         </mat-card-header>
+         <mat-card-content>
+            <span>Prix: </span><span>{{book.price}} €</span>
+
+         </mat-card-content>
+         <mat-card-actions *ngIf="!inCartCollection && !inWishListCollection ">
+            <button mat-button (click)="onClickAddToCart(book)">Ajouter au panier</button>
+            <button mat-button (click)="onClickAddToWishList(book)">Ajouter dans collection</button>
+         </mat-card-actions>
+         <mat-card-actions *ngIf="inCartCollection">
+            <button mat-button (click)="removeFromCart(book)">Supprimer du panier</button>
+         </mat-card-actions>
+         <mat-card-actions *ngIf="inWishListCollection">
+            <button mat-button (click)="removeFromWishList(book)">Supprimer de la collection</button>
+            <button mat-button (click)="onClickAddToCart(book)">Ajouter au panier</button>
+         </mat-card-actions>
+      </div>
+   </mat-card>
+
+</a>

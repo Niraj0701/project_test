@@ -1,0 +1,26 @@
+:host {
+   .book-brief{
+      width: 50%;
+      display: inline-block;
+      .book-card {
+         margin: 20px;
+         height: 130px;
+         display: flex;
+         .book-image{
+            flex: 0.2;
+         }
+         .book-summary{
+            text-align: center;
+            width: 100%;
+               /deep/ .mat-card-header-text{
+                  margin: 0;
+                  width: 100%;
+               }
+            .mat-card-actions{
+               margin: 8px;
+               text-align: center;
+            }
+         }
+      }
+   }
+}

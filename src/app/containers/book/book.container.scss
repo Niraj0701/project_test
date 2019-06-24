@@ -1,0 +1,10 @@
+:host {
+   .searchSection{
+      position: relative;
+      z-index: 1;
+   }
+   .bookListSection{
+      height: calc(100% - 200px);
+      overflow: auto;
+   }
+}

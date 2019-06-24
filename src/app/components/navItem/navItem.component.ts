@@ -1,0 +1,24 @@
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+
+@Component({
+   selector: 'app-nav-item',
+   template: `
+    <a mat-list-item (click)="activate.emit()">
+      <mat-icon md-list-icon>{{ icon }}</mat-icon>
+      <span mat-line><ng-content></ng-content></span>
+      <span mat-line class="secondary">{{ hint }}</span>
+    </a>
+  `,
+   styles: [`
+    .secondary {
+      color: rgba(0, 0, 0, 0.54);
+    }
+  `]
+})
+export class AppNavItemComponent {
+   @Input() icon = '';
+   @Input() hint = '';
+   @Input() routerLink: string | any[] = '/';
+   @Output() activate = new EventEmitter();
+}
