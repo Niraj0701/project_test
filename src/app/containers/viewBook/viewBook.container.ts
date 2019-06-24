@@ -34,7 +34,6 @@ export class ViewBookPageContainer implements OnDestroy {
    //
    constructor(private store: Store<IAppState>, route: ActivatedRoute) {
       this.actionsSubscription = route.params.subscribe(routeData => {
-         console.log('data', routeData);
          this.selectedId(routeData.id);
       });
    }
@@ -47,13 +46,11 @@ export class ViewBookPageContainer implements OnDestroy {
       this.store.dispatch(getBookByIsbn(id));
       // this.selectedBookFromStore = store.select(getSelectedBookByIsbn);
       this.store.select(getSelectedBookByIsbn).subscribe(data => {
-         console.log('single Book : ', data);
          this.selectedBookFromStore = data[0];
       });
    }
 
    public bookAddToWishList(book: IBook) {
-      console.log('Wish : ', book);
       this.store.dispatch(addToWishList(book));
    }
 

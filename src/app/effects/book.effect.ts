@@ -17,7 +17,6 @@ export class BookEffects {
       ofType<IGetBookListAction>(BookActions.GET_BOOK_LIST),
       mergeMap(() => this.bookApiService.getAllBooks()
          .pipe(map((data) => {
-               console.log('**** : ', data);
                return {type: BookActions.GET_BOOK_LIST_SUCCESS, results: data};
             }), catchError(() => EMPTY)
          ))

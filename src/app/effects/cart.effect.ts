@@ -22,10 +22,7 @@ export class CartEffects {
          map(action => action.books
          ),
          switchMap(books => {
-            console.log('books : ', books);
             this.bookApiService.getOfferForBooks(books).subscribe(gotOffers => {
-               console.log('Available Offer: ', gotOffers);
-               // this.store.dispatch(putOffersToCart(gotOffers.offers));
                this.store.dispatch({
                   type: CartActionsTypes.PUT_OFFERS,
                   offers: gotOffers.offers

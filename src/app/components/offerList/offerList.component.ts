@@ -38,13 +38,11 @@ export class OfferListComponent {
    }
 
    public radioChange(event) {
-      console.log(event);
       this.deductedCost = event.value;
       this.onValueSelect.emit(event);
    }
 
    public isValidForSliceValue(offer: IOffer): boolean {
-      console.log('*** : ', !!(offer.sliceValue && this.totalCartValue > offer.sliceValue));
       return !!(offer.type === 'slice' && this.totalCartValue < offer.sliceValue);
    }
 

@@ -30,7 +30,6 @@ export class CartPriceContainer implements OnInit {
 
    ngOnInit() {
       this.store.select(getCartBookList).subscribe(books => {
-         console.log('triggered...!!!');
          this.calculateTheCartPrice(books);
       });
    }
@@ -48,7 +47,6 @@ export class CartPriceContainer implements OnInit {
    }
 
    public onRadioValueChange(value) {
-      console.log('Offer Prices', value);
       this.finalPrice = this.calculateFinalPrice(value);
    }
 
@@ -56,7 +54,6 @@ export class CartPriceContainer implements OnInit {
       bookList.map(item => {
          this.totalPriceOfBooks += item.price;
       });
-      console.log('TOTAL BOOKLIST: ', this.totalPriceOfBooks);
       this.finalPrice = this.totalPriceOfBooks;
 
    }
@@ -64,16 +61,13 @@ export class CartPriceContainer implements OnInit {
    public calculateFinalPrice(offerPrice: IOffer) {
       switch (offerPrice.type) {
          case 'percentage': {
-            console.log(this.totalPriceOfBooks % offerPrice.value);
             return this.totalPriceOfBooks - (this.totalPriceOfBooks * (offerPrice.value / 100));
          }
          case 'minus': {
-            console.log(this.totalPriceOfBooks - offerPrice.value);
             return this.totalPriceOfBooks - offerPrice.value;
          }
          case 'slice': {
             if (this.totalPriceOfBooks > offerPrice.sliceValue) {
-               console.log(this.totalPriceOfBooks - offerPrice.value);
                return this.totalPriceOfBooks - offerPrice.value;
             }
          }

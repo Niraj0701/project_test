@@ -38,7 +38,6 @@ describe('Test for WishList Reducer', () => {
    it('should remove SingleBook from WishListState', () => {
       const removeBookAction: IRemoveFromWishListAction = removeFromWishList(singleBook);
       const result = wishListReducer(initialWishListState, removeBookAction);
-      console.log(result);
       expect(result).not.toBeNull();
       expect(result.wishList).toEqual(jasmine.any(Array));
 

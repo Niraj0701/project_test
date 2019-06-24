@@ -39,22 +39,18 @@ export class BookListContainer implements OnInit {
       this.searchQuery = store.select(getSearchString);
       this.bookListSearched = store.select(getListOfSearchedBooks);
       this.bookListSearched.subscribe(data => {
-         console.log('##DATA### : ', data);
       });
    }
 
    ngOnInit() {
-      console.log('Init');
       this.store.dispatch(getBookList());
    }
 
    searchBookInList(stringValue: string) {
-      console.log(stringValue);
       this.store.dispatch(searchBook(stringValue));
    }
 
    public bookAddToWishList(book: IBook) {
-      console.log('Wish : ', book);
       this.store.dispatch(addToWishList(book));
    }
 
